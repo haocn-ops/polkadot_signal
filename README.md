@@ -103,14 +103,14 @@ Alice (Initiator)                    Bob (Receiver)
        │                                    │
        │  1. Get Bob's key bundle           │
        │     - Identity Key (IK_B)          │
-       │     - Signed Prekey (SPK_B)        │
-       │     - One-time Prekey (OPK_B)      │
+       │     - Signed Prekey (SPK_B)       │
+       │     - One-time Prekey (OPK_B)     │
        │                                    │
-       │  2. Generate Ephemeral Key (EK_A)  │
+       │  2. Generate Ephemeral Key (EK_A) │
        │                                    │
        │  3. Compute DH                     │
-       │     DH1 = DH(IK_A, SPK_B)          │
-       │     DH2 = DH(EK_A, IK_B)           │
+       │     DH1 = DH(IK_A, SPK_B)         │
+       │     DH2 = DH(EK_A, IK_B)          │
        │     DH3 = DH(EK_A, SPK_B)          │
        │     DH4 = DH(EK_A, OPK_B)          │
        │                                    │
