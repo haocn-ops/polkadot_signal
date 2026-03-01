@@ -1,0 +1,18 @@
+[package]
+name = "polkadot-signal-tests"
+version = "0.1.0"
+authors = ["Polkadot Signal Team"]
+edition = "2021"
+license = "Apache-2.0"
+
+[[test]]
+name = "e2e_tests"
+path = "e2e_tests.rs"
+
+[dependencies]
+signal-protocol = { path = "../protocol" }
+p2p-messaging = { path = "../p2p" }
+ipfs-storage = { path = "../storage" }
+tokio = { version = "1.0", features = ["full", "test-util"] }
+tracing-subscriber = "0.3"
+libp2p = "0.52"

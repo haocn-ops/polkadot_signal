@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+    "protocol",
+    "storage",
+]
+
+[workspace.package]
+authors = ["Polkadot Signal Team"]
+edition = "2021"
+repository = "https://github.com/your-org/polkadot-signal"
+license = "Apache-2.0"

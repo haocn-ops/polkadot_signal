@@ -1,0 +1,18 @@
+[package]
+name = "polkadot-signal-examples"
+version = "0.1.0"
+authors = ["Polkadot Signal Team"]
+edition = "2021"
+license = "Apache-2.0"
+
+[[bin]]
+name = "demo"
+path = "src/demo.rs"
+
+[dependencies]
+signal-protocol = { path = "../protocol" }
+p2p-messaging = { path = "../p2p" }
+libp2p = { version = "0.52", features = ["tcp", "quic", "noise", "yamux", "gossipsub", "kad", "identify", "ping"] }
+tokio = { version = "1.0", features = ["full"] }
+tracing-subscriber = "0.3"
+hex = "0.4"
