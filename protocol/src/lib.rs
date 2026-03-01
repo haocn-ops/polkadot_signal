@@ -4,6 +4,7 @@ pub mod x3dh;
 pub mod double_ratchet;
 pub mod session;
 pub mod message;
+pub mod agent_message;
 
 pub use error::{SignalError, SignalResult};
 pub use keys::{
@@ -14,6 +15,11 @@ pub use x3dh::X3DH;
 pub use double_ratchet::DoubleRatchet;
 pub use session::Session;
 pub use message::{Envelope, Message, MessageType};
+pub use agent_message::{
+    AgentMessage, AgentMessageType, AgentIdentifier, AgentType,
+    AgentPayload, TaskDefinition, TaskResult, TaskPriority,
+    AgentCapabilities, Capability, ToolCall, ToolResult, AgentError,
+};
 
 #[cfg(test)]
 mod tests {

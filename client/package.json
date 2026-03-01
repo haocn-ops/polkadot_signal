@@ -1,12 +1,27 @@
 {
   "name": "polkadot-signal-client",
-  "version": "0.1.0",
-  "description": "TypeScript client for Polkadot Signal key management",
-  "main": "dist/SignalKeysClient.js",
-  "types": "dist/SignalKeysClient.d.ts",
+  "version": "0.2.0",
+  "description": "TypeScript client for Polkadot Signal key management and AI Agent communication",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./SignalKeysClient": {
+      "types": "./dist/SignalKeysClient.d.ts",
+      "default": "./dist/SignalKeysClient.js"
+    },
+    "./AgentClient": {
+      "types": "./dist/AgentClient.d.ts",
+      "default": "./dist/AgentClient.js"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "example": "ts-node src/example.ts",
+    "agent-example": "ts-node src/agent_example.ts",
     "lint": "eslint src/**/*.ts",
     "test": "jest"
   },
@@ -15,7 +30,9 @@
     "signal",
     "e2ee",
     "messaging",
-    "blockchain"
+    "blockchain",
+    "ai-agent",
+    "agent-communication"
   ],
   "author": "Polkadot Signal Team",
   "license": "Apache-2.0",

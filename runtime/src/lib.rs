@@ -136,6 +136,67 @@ impl pallet_signal_keys::Config for Runtime {
 	type MaxKeySize = MaxKeySize;
 }
 
+parameter_types! {
+	pub const MaxGroupNameLength: u32 = 128;
+	pub const MaxGroupMembers: u32 = 100;
+}
+
+impl pallet_signal_groups::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxGroupNameLength = MaxGroupNameLength;
+	type MaxGroupMembers = MaxGroupMembers;
+	type MaxKeySize = MaxKeySize;
+}
+
+impl pallet_message_queue::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxCidLength = ConstU32<256>;
+	type MaxPendingMessages = ConstU32<1000>;
+	type MessageTtl = ConstU32<10080>;
+}
+
+parameter_types! {
+	pub const MaxAgentNameLength: u32 = 128;
+	pub const MaxDescriptionLength: u32 = 1024;
+	pub const MaxCapabilities: u32 = 50;
+	pub const MaxCapabilityNameLength: u32 = 128;
+	pub const MaxProtocols: u32 = 20;
+	pub const MaxEndpointLength: u32 = 256;
+	pub const MaxTags: u32 = 20;
+}
+
+impl pallet_agent_registry::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxAgentNameLength = MaxAgentNameLength;
+	type MaxDescriptionLength = MaxDescriptionLength;
+	type MaxCapabilities = MaxCapabilities;
+	type MaxCapabilityNameLength = MaxCapabilityNameLength;
+	type MaxProtocols = MaxProtocols;
+	type MaxEndpointLength = MaxEndpointLength;
+	type MaxTags = MaxTags;
+}
+
+parameter_types! {
+	pub const MaxTaskInputSize: u32 = 1024 * 1024;
+	pub const MaxTaskOutputSize: u32 = 1024 * 1024;
+	pub const MaxDependencies: u32 = 20;
+	pub const MaxTaskCapabilities: u32 = 50;
+	pub const MaxTaskTypeLength: u32 = 128;
+	pub const MaxActiveTasksPerAgent: u32 = 100;
+	pub const TaskTimeoutBlocks: BlockNumber = 100;
+}
+
+impl pallet_task_queue::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type MaxTaskInputSize = MaxTaskInputSize;
+	type MaxTaskOutputSize = MaxTaskOutputSize;
+	type MaxDependencies = MaxDependencies;
+	type MaxCapabilities = MaxTaskCapabilities;
+	type MaxTaskTypeLength = MaxTaskTypeLength;
+	type MaxActiveTasksPerAgent = MaxActiveTasksPerAgent;
+	type TaskTimeoutBlocks = TaskTimeoutBlocks;
+}
+
 #[frame_support::pallet]
 pub mod pallet_aura {
 	use frame_support::pallet_prelude::*;
@@ -171,6 +232,10 @@ construct_runtime!(
 		TransactionPayment: pallet_transaction_payment,
 		Aura: pallet_aura,
 		SignalKeys: pallet_signal_keys,
+		SignalGroups: pallet_signal_groups,
+		MessageQueue: pallet_message_queue,
+		AgentRegistry: pallet_agent_registry,
+		TaskQueue: pallet_task_queue,
 	}
 );
 

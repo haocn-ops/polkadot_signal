@@ -13,6 +13,10 @@ codec = { package = "parity-scale-codec", version = "3.6.1", default-features = 
 scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
 
 pallet-signal-keys = { path = "../pallets/signal-keys", default-features = false }
+pallet-signal-groups = { path = "../pallets/signal-groups", default-features = false }
+pallet-message-queue = { path = "../pallets/message-queue", default-features = false }
+pallet-agent-registry = { path = "../pallets/agent-registry", default-features = false }
+pallet-task-queue = { path = "../pallets/task-queue", default-features = false }
 
 frame-executive = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
 frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
@@ -45,6 +49,10 @@ std = [
 	"frame-system/std",
 	"pallet-balances/std",
 	"pallet-signal-keys/std",
+	"pallet-signal-groups/std",
+	"pallet-message-queue/std",
+	"pallet-agent-registry/std",
+	"pallet-task-queue/std",
 	"pallet-timestamp/std",
 	"pallet-transaction-payment/std",
 	"sp-api/std",

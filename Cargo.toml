@@ -3,6 +3,16 @@ resolver = "2"
 members = [
     "protocol",
     "storage",
+    "p2p",
+    "node",
+    "runtime",
+    "pallets/signal-keys",
+    "pallets/signal-groups",
+    "pallets/message-queue",
+    "pallets/agent-registry",
+    "pallets/task-queue",
+    "examples",
+    "tests",
 ]
 
 [workspace.package]
